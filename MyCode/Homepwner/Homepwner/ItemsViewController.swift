@@ -54,32 +54,47 @@ class ItemsViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            let item = self.itemStore.allItems[indexPath.row]
+            let alert = UIAlertController(title: "Delete \(item.name)", message: "Are you sure to delte the item", preferredStyle: .ActionSheet)
+            
+            let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            alert.addAction(cancel)
+            
+            let delete = UIAlertAction(title: "Delete", style: .Destructive, handler: {
+            (action) in
+                self.itemStore.removeItem(item)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            })
+            alert.addAction(delete)
+            presentViewController(alert, animated: true, completion: nil)
+            
+            
+           
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
-    /*
+
+    
     // Override to support rearranging the table view.
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+        itemStore.moveItem(fromIndexPath.row, toIndex: toIndexPath.row)
     }
-    */
+    
 
-    /*
+    
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-    */
+    
 
     /*
     // MARK: - Navigation
@@ -91,4 +106,20 @@ class ItemsViewController: UITableViewController {
     }
     */
 
+    @IBAction func addItem(sender: AnyObject) {
+        let item = self.itemStore.createItem()
+        let row = self.itemStore.allItems.indexOf(item)
+        let indexPath = NSIndexPath(forRow: row!, inSection: 0)
+        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        
+    }
+    @IBAction func toggleState(sender: UIButton) {
+        if editing {
+            sender.setTitle("Edit", forState: .Normal)
+            self.tableView.setEditing(false, animated: true)
+        } else {
+            sender.setTitle("Done", forState: .Normal)
+            self.tableView.setEditing(true, animated: true)
+        }
+    }
 }

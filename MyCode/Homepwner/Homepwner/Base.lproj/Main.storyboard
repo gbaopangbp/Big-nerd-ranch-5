@@ -13,9 +13,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="W6I-H2-26p">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBe-gf-opQ">
+                                    <rect key="frame" x="8" y="15" width="288" height="30"/>
+                                    <state key="normal" title="Edit"/>
+                                    <connections>
+                                        <action selector="toggleState:" destination="XKr-vT-BGr" eventType="touchUpInside" id="G6O-CF-Xax"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9y4-SC-83m">
+                                    <rect key="frame" x="304" y="15" width="288" height="30"/>
+                                    <state key="normal" title="Add"/>
+                                    <connections>
+                                        <action selector="addItem:" destination="XKr-vT-BGr" eventType="touchUpInside" id="fFZ-Y8-9OW"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="sBe-gf-opQ" firstAttribute="centerY" secondItem="W6I-H2-26p" secondAttribute="centerY" id="1JT-07-icf"/>
+                                <constraint firstAttribute="trailing" secondItem="9y4-SC-83m" secondAttribute="trailing" constant="8" id="II9-a9-K0g"/>
+                                <constraint firstItem="9y4-SC-83m" firstAttribute="leading" secondItem="sBe-gf-opQ" secondAttribute="trailing" constant="8" id="VCQ-6d-JJj"/>
+                                <constraint firstItem="9y4-SC-83m" firstAttribute="centerY" secondItem="W6I-H2-26p" secondAttribute="centerY" id="aQe-sd-h7T"/>
+                                <constraint firstItem="9y4-SC-83m" firstAttribute="width" secondItem="sBe-gf-opQ" secondAttribute="width" id="fKZ-0a-Ut8"/>
+                                <constraint firstItem="sBe-gf-opQ" firstAttribute="leading" secondItem="W6I-H2-26p" secondAttribute="leading" constant="8" id="lKk-44-wio"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemIdentifier" textLabel="uvi-3I-FtO" detailTextLabel="0Co-Gd-F6g" style="IBUITableViewCellStyleValue1" id="yzl-e7-xzc">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="88" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yzl-e7-xzc" id="H84-HG-xMs">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
