@@ -18,6 +18,9 @@ class ItemsViewController: UITableViewController {
         let inset = UIEdgeInsetsMake(statusHeight, 0, 0, 0);
         self.tableView.contentInset = inset
         self.tableView.scrollIndicatorInsets = inset
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 65
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,11 +40,14 @@ class ItemsViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ItemIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("ItemCell", forIndexPath: indexPath) as! ItemCell
+        
+        cell.updateLabels()
 
         let item = self.itemStore.allItems[indexPath.row]
-        cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+        cell.nameLabel.text = item.name
+        cell.valueLabel.text = "$\(item.valueInDollars)"
+        cell.serialNumberLabel.text = item.serialNumber
         return cell
     }
     
