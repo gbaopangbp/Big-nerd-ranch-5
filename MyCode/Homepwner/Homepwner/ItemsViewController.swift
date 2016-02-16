@@ -11,14 +11,14 @@ import UIKit
 class ItemsViewController: UITableViewController {
     var itemStore: ItemStore!
 
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        navigationItem.leftBarButtonItem = editButtonItem()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let statusHeight = UIApplication.sharedApplication().statusBarFrame.height
-        let inset = UIEdgeInsetsMake(statusHeight, 0, 0, 0);
-        self.tableView.contentInset = inset
-        self.tableView.scrollIndicatorInsets = inset
-        
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 65
     }
@@ -121,14 +121,5 @@ class ItemsViewController: UITableViewController {
         let indexPath = NSIndexPath(forRow: row!, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         
-    }
-    @IBAction func toggleState(sender: UIButton) {
-        if editing {
-            sender.setTitle("Edit", forState: .Normal)
-            self.tableView.setEditing(false, animated: true)
-        } else {
-            sender.setTitle("Done", forState: .Normal)
-            self.tableView.setEditing(true, animated: true)
-        }
     }
 }
