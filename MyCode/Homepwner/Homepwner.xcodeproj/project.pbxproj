@@ -15,6 +15,7 @@
 		835283981C71A5A1007B5CF3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835283971C71A5A1007B5CF3 /* Item.swift */; };
 		8352839A1C71B811007B5CF3 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835283991C71B811007B5CF3 /* ItemStore.swift */; };
 		8352839C1C71D389007B5CF3 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352839B1C71D389007B5CF3 /* ItemCell.swift */; };
+		8352839E1C72FE79007B5CF3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352839D1C72FE79007B5CF3 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		835283971C71A5A1007B5CF3 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		835283991C71B811007B5CF3 /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		8352839B1C71D389007B5CF3 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		8352839D1C72FE79007B5CF3 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				835283971C71A5A1007B5CF3 /* Item.swift */,
 				835283991C71B811007B5CF3 /* ItemStore.swift */,
 				8352839B1C71D389007B5CF3 /* ItemCell.swift */,
+				8352839D1C72FE79007B5CF3 /* DetailViewController.swift */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				835283961C71A47E007B5CF3 /* ItemsViewController.swift in Sources */,
 				835283981C71A5A1007B5CF3 /* Item.swift in Sources */,
 				8352839A1C71B811007B5CF3 /* ItemStore.swift in Sources */,
+				8352839E1C72FE79007B5CF3 /* DetailViewController.swift in Sources */,
 				835283841C71A2C3007B5CF3 /* AppDelegate.swift in Sources */,
 				8352839C1C71D389007B5CF3 /* ItemCell.swift in Sources */,
 			);

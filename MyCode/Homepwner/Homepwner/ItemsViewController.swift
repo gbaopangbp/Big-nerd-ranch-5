@@ -102,15 +102,18 @@ class ItemsViewController: UITableViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let row = tableView.indexPathForSelectedRow?.row {
+            let item = itemStore.allItems[row]
+            let detailViewController = segue.destinationViewController as! DetailViewController
+            detailViewController.item = item
+        }
     }
-    */
+
 
     @IBAction func addItem(sender: AnyObject) {
         let item = self.itemStore.createItem()
