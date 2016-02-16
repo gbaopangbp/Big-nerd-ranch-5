@@ -9,15 +9,18 @@
 import Foundation
 
 class ItemStore{
-    var allItems:[Item]
+    var allItems:[Item] = [Item]()
+    let saveUrl:NSURL = {
+        let docPaths = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        return (docPaths.first?.URLByAppendingPathComponent("items.archer"))!
+    }()
     
     init(){
-        allItems = [Item]()
+        if let saveItems = NSKeyedUnarchiver.unarchiveObjectWithFile(saveUrl.path!) as? [Item] {
+            allItems += saveItems
+        }
         
-        
-//        for _ in 0..<5 {
-//            self.createItem()
-//        }
+
     }
     
     func createItem()->Item {
@@ -42,5 +45,9 @@ class ItemStore{
         
         allItems.insert(moveItem, atIndex: toIndex)
     
+    }
+    
+    func saveChanges() ->Bool{
+        return NSKeyedArchiver.archiveRootObject(allItems, toFile: saveUrl.path!)
     }
 }
